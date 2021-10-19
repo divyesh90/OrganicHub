@@ -1,0 +1,126 @@
+.product{
+    width: 100%;
+    margin-top: 10%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.icon {
+    font-size: 20px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 0px;
+
+}
+.icon:hover{
+    color: #94C973;
+
+}
+.icon_cart {
+margin-left: 10%;
+margin-right: 10%;
+    display: inline ;
+    
+}
+.product h2 {
+    height:40px;
+    background-color: #d8f1a4;
+    color:#fff;
+    font-size: 24px;
+    width:200px;
+}
+
+/*.product h2::after{
+    content: '';
+        border-top: 42px solid #9ACD32;
+        border-right: 40px solid transparent;
+        position: absolute;
+        left:0px;
+        top: 30px;
+}*/
+.row{
+    margin-top: 30px;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+.row .product-top{
+    display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 310px;
+  width: 400px;
+  
+  
+  background-color: #eeeeee;
+  
+  border-radius: 5px;
+}
+.row .product-top img{
+    
+    width: 300px;
+    height: 300px;
+
+}
+.row .product-bottom .fa{
+    color: #28a745;
+    font-size: 19px;
+}
+.row .product-bottom h3{
+    font-size: 20px;
+    font-weight: bold;
+    color:#9ACD32;
+}
+.row .product-bottom h5{
+    font-size: 20px;
+}
+.row .product-top .overlay{
+    display: block;
+    opacity:0;
+    position: absolute;
+    top:10%;
+    margin-left: 0;
+    width:70px;
+}
+.row .product-top:hover .overlay{
+    opacity: 1;
+    margin-left: 5%;
+    transition: 0.5%;
+    color: yellowgreen;
+}
+.overlay .fa{
+    cursor: pointer;
+    background-color: #D3D3D3;
+    color:#000;
+    height: 35px;
+    width:35px;
+    font-size: 20px;
+    padding: 7px;
+    margin:5%;
+    margin-bottom: 5%;
+}
+.overlay .btn-secondary{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.product .button a{
+    background-color:#9ACD32;
+     padding: 12px 30px;
+     text-decoration:none;
+     color:white;
+     font-size: 25px;
+     letter-spacing:1.5px;
+     margin-top: 10px;
+     margin-bottom: 30px;
+ }
+ .product .button a:hover{
+     background-color: blue;
+     color:#fff;
+ }
