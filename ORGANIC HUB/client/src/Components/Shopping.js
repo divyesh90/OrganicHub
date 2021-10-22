@@ -49,9 +49,10 @@ export default function Shopping({setCartItems}) {
               {/* <button key={user._id} onClick={()=> addtocart(user._id,user.pname,user.price, user.sellprice)} ><h5>add to cart </h5></button> */}
               
               <div className="icon_cart">
-                        <button type="button" className="icon" title="Quick Shop"><i className="fa fa-eye"></i></button>
+                        
                         <button type="button"  className="icon" title="Add to WIsh-List"><i className="fa fa-heart-o"></i></button>
-                        <button type="button"  className="icon" title="Add to Cart"  key={user._id} onClick={()=> addtocart(user._id,user.pname,user.price, user.sellprice,user.pimg)} ><i className="fa fa-shopping-cart"></i></button>
+                        
+                        <button type="button"  className="icon" title="Add to Cart"  key={user._id} onClick={()=> addtocart(user._id,user.pname,user.price, user.sellprice,user.pimg)} >Add TO Cart  <i className="fa fa-shopping-cart"></i></button>
                     </div>
 
 
@@ -59,6 +60,7 @@ export default function Shopping({setCartItems}) {
                 
                 <h3>{user.pname}</h3>
                 <h5>{user.sellprice}/kg</h5>
+                <br></br>
               </div>
           </div>
             </>
@@ -183,15 +185,14 @@ export default function Shopping({setCartItems}) {
 
       <div className="product" id="product">
         <div className="container" data-aos="fade-up">
-          <h2>Our Products</h2>
+          <h1>Products</h1>
           <div className="row">
             
             {renderProduct()}
+            
 
             </div>
-          <div className="button">
-            <a className="shopping">More Products</a>
-          </div>
+          <br></br>
         </div>
       </div>
     </div>

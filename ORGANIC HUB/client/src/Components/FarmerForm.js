@@ -41,18 +41,6 @@ const handleChange=(e)=> {
 }
 
 
-
-// const handleChange=(e)=> {
-//   const { name , value}= e.target
-//   setUser({
-//       ...farmer,
-//       [name]: value
-  
-//   })
-//   console.log(farmer)
-// }
-
-
 const farmerform = (e) => {
   e.preventDefault();
   
@@ -98,28 +86,7 @@ const farmerform = (e) => {
         <p className="sign">Start Selling</p>
 
         <form onSubmit={farmerform} className="form-inline"  enctype="multipart/form-data" >
-          {/* <div className="alert"></div>
-          <div id="img_container">
-            <img
-              id="preview"
-              src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg"
-              alt="your image"
-              title=""
-            />
-          </div> */}
-          {/* <div className="input-group">
-              <input
-                type="file"
-                id="inputGroupFile01"
-                className="lable1"
-              />
-           */}
-              {/* <label1 className="lable1" for="inputGroupFile01">
-                Choose file
-              </label1> */}
-        
-          {/* </div> */}
-
+         
           <div className="product_info">
             <label for="p_name">
               <span>Product Name </span>
@@ -132,8 +99,6 @@ const farmerform = (e) => {
               />
             </label>
 
-
-            
 
             <label for="p_name">
               <span> Product Category </span>

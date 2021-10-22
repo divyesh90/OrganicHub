@@ -10,6 +10,7 @@ import CNavbar from './Components/CNavbar';
 import Signup from './Components/Signup';
 import Shopping from './Components/Shopping';
 import MyCart from './Components/MyCart';
+
 import { useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -38,8 +39,9 @@ function App() {
       <Router>
         <Switch >
           
-          {}
-          <Route path="/farmer">
+          
+          
+          <Route  path="/farmer">
             {
               //<Navbar setLoginUser={setLoginUser}/>
               

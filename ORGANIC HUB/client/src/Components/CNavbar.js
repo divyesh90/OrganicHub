@@ -14,7 +14,7 @@ export default function CNavbar( props) {
 
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" >
           <img
             src="./logo.png"
             alt=""

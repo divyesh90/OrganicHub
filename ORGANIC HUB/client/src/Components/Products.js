@@ -62,18 +62,11 @@ export default function Products(props){
       return (
           <>
           
-
-        {/* <tr>
-          <td>{user.pname}    </td>
-          <td>{user.price}</td>
-          <td>{user.sprice}</td> 
-          <td>{user.company}</td> 
-        </tr> */}
             
             <tr id={row_id}>
             <td>{num}</td>
-         
-            <td><a><img src={path} className="avatar" alt="photo"/> {user.pname}</a></td>                      
+            <td> <img src={path} className="avatar" alt="photo"/> </td>
+            <td><a> {user.pname}</a></td>                      
             <td>{user.pcategory}</td>
             <td><span className="status text-success"></span>{user.price}</td>
             <td><span className="status text-success"></span>{user.discount}</td>
@@ -160,7 +153,8 @@ export default function Products(props){
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Products</th>	
+                                    <th></th>	
+                                    <th>Products</th>
                                     <th>Category</th>
                                     <th>Price</th>
                                     <th>Discount</th>

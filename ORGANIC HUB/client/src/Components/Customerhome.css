@@ -1,0 +1,47 @@
+.hero{
+   
+   
+    /* Set a specific height */
+    height: 50%;
+  
+    
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+    position: relative;
+    
+  }
+
+.home_image{
+
+    width: 100vw;
+    margin-bottom: 3vw;
+
+  }
+  .s_image{
+
+    width: 45vw;
+    padding-bottom: 4vw;
+
+  }
+.hero:before {
+    content: "";
+    /* background: rgba(255, 255, 255, 0.6); */
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Place text in the middle of the image */
+  .hero-text {
+    text-align: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.925); 
+    top: 50%;
+    left: 50%;
+    font-family: "Lucida Console", "Courier New", monospace;
+    transform: translate(-50%, -50%);
+    color:#94C973;
+  }

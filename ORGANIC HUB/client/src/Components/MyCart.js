@@ -44,9 +44,6 @@ export default function MyCart(props)
         productItem[id].incart -=1;
 
         
-            
-
-        
         localStorage.setItem('productincart', JSON.stringify(productItem))
         // console.log(num);
         
@@ -61,16 +58,24 @@ export default function MyCart(props)
     }
 
 
-    const removeItem = (id) => {
+    const removeItem = (id,sprice) => {
 
-        let productItem = localStorage.getItem('productincart');
-        localStorage.removeItem('id')
+      let productItem = localStorage.getItem('productincart');
+        productItem = JSON.parse(productItem)
+
+        productItem[id].incart = 0;
+        totalprice -= sprice;
+
+        localStorage.setItem('productincart', JSON.stringify(productItem))
+        localStorage.setItem('totalprice' , totalprice)
+        
 
         var productid= id+"product"
         
         var product = document.getElementById(productid);
         product.remove();
-        console.log(id)
+        document.getElementById("totalprice").innerHTML= totalprice
+        document.getElementById("finalprice").innerHTML= totalprice+50
 
     }
 
@@ -97,9 +102,9 @@ export default function MyCart(props)
             <article id={productid} className="product">
             <header>
             <a className="remove">
-                <img src={path} alt="" />
+                <img src={path}  />
 
-                <h3 onClick={ ()=> removeItem(item.id)}>Remove product</h3>
+                <h3 onClick={ ()=> removeItem(item.id , item.sprice)}>Remove product</h3>
             </a>
             </header>
 
@@ -107,18 +112,16 @@ export default function MyCart(props)
 
             <h1>{item.pname}</h1>
 
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
-
             
-            
+            <h1 > ₹ {item.sprice} /Kg</h1>
             </div>
 
             <footer className="content">
             <span className="qt-minus" onClick={ ()=> productminus(item.id, item.sprice)}>-</span>
             <span className="qt" id={item.id} > {item.incart}</span>
             <span className="qt-plus" onClick={()=> productplus( item.id , item.sprice ) }>+</span>
-            <h2 className="full-price"  id={priceid}> {item.sprice}</h2>
-            <h2 className="price" > {item.sprice}</h2>
+            <h2 className="full-price"  id={priceid}> ₹{item.sprice}</h2>
+            
             
             
                 
@@ -133,7 +136,7 @@ export default function MyCart(props)
     else{
         return(
             <h1>Cart Empty</h1>
-        )
+          )
     }
 
 
@@ -160,12 +163,12 @@ export default function MyCart(props)
     <div className="container clearfix">
 
       <div className="left">
-        <h2 className="subtotal" >Subtotal: <span  id="totalprice">{totalprice}</span></h2>
-        <h3 className="shipping">Shipping: <span>50</span>€</h3>
+        <h2 className="subtotal" >Subtotal: <span  id="totalprice">₹{totalprice}</span></h2>
+        <h3 className="shipping">Shipping: <span>₹50</span></h3>
       </div>
 
       <div className="right">
-        <h1 className="total">Total: <span  id="finalprice">{totalprice}</span></h1>
+        <h1 className="total">Total: <span  id="finalprice">₹{totalprice}</span></h1>
         <a className="btn">Checkout</a>
       </div>
 

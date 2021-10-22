@@ -3,9 +3,6 @@ import './LoginSignup.css'
 import axios from "axios"
 import { useHistory } from 'react-router'
 
-    
-
-    
 
 const Login = ({setLoginUser}) => {
 

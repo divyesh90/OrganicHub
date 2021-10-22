@@ -6,7 +6,6 @@ import { useHistory } from 'react-router'
 
 
 
-console.log("hellooo");
 const Signup = () => {
 
     
