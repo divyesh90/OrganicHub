@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Login from './Components/Login';
 import Customerhome from './Components/Customerhome';
@@ -26,7 +26,6 @@ function App() {
   const [ user , setLoginUser]= useState({})
   const [ products,productdetails]= useState({})
   const [ cartItems, setCartItems] = useState([])
-  console.log(user);
   var login =localStorage.getItem('login');
 
   var user1 = localStorage.getItem('user');
@@ -65,7 +64,8 @@ function App() {
                <Login setLoginUser={setLoginUser}/>
                </>
             }
-            </Route>
+          </Route>
+
           <Route exact  path="/login">
           {
             <>
@@ -75,6 +75,7 @@ function App() {
             </>
           }
           </Route>
+
           <Route path="/Signup">
           {
             <>
@@ -120,7 +121,7 @@ function App() {
             }
           </Route>
 
-          <Route   path="/customer">
+          {/* <Route   path="/customer">
             {
               login=='yes' ?
                <>
@@ -134,7 +135,7 @@ function App() {
                </>
 
             }
-          </Route>
+          </Route> */}
 
           <Route path="/shopping">
             {
@@ -159,6 +160,23 @@ function App() {
             <MyCart pname={cartItems}/>
             </>
           </Route>
+
+          <Route   path="/">
+            {
+              login=='yes' ?
+               <>
+               <CNavbar login={user1.name} logout="Logout"  /> 
+               <Customerhome/>
+               </>
+               : 
+               <>
+               <CNavbar login="login" logout="" />
+               <Login setLoginUser={setLoginUser}/>
+            </>
+
+            }
+          </Route>
+
 
         </Switch>
       </Router>

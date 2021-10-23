@@ -57,7 +57,7 @@ export default function CNavbar( props) {
               </a>
             </li>
           </ul>
-          <div class="navbar-nav ms-auto">
+          <div className="navbar-nav ms-auto">
 
             <li className="nav-item">
            

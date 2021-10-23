@@ -6,11 +6,9 @@ import { useHistory } from "react-router";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 export default function FarmerForm(props) {
-
-
   const history = useHistory();
 
-  const [ farmer , setUser] = useState({
+  const [farmer, setUser] = useState({
     pname: "",
     pcategory: "",
     price: "",
@@ -18,75 +16,61 @@ export default function FarmerForm(props) {
     sellprice: "",
     description: " ",
     email: props.email,
+  });
 
+  const [file, setFile] = useState(null);
 
-})
+  const handlefile = (e) => {
+    setFile(e.target.files[0]);
+  };
 
-const [file , setFile] = useState(null)
-
-const handlefile=(e) =>{
-
-  setFile(e.target.files[0]);
-
-}
-
-const handleChange=(e)=> {
-  const { name , value}= e.target
-  setUser({
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
       ...farmer,
-      [name]: value
-  
-  })
-  console.log(farmer)
-}
+      [name]: value,
+    });
+  };
 
+  const farmerform = (e) => {
+    e.preventDefault();
 
-const farmerform = (e) => {
-  e.preventDefault();
-  
+    const { pname, pcategory, price, sellprice, description, email } = farmer;
 
-  const {pname, pcategory,price,sellprice,description,email}=farmer
-  console.log(email);
-  var formData = new FormData();
-  formData.append('file', file);
-    for ( var key in farmer ) {
+    var formData = new FormData();
+    formData.append("file", file);
+    for (var key in farmer) {
       formData.append(key, farmer[key]);
     }
 
+    const config = {
+      Headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
 
-  console.log(farmer);
-  const config ={
-    Headers:
-    {
-      'content-type': 'multipart/form-data'
-    },
-  }
-
-  if(pname && pcategory && price && sellprice && description )
-  {
-    console.log(formData)
-      axios.post("http://localhost:5000/rproduct", formData ,config)
-      .then( res => {
-        alert(" succesfully upload ")
-        console.log(res)
-        // setLoginUser(res.data.user);
-        history.push("/products")
-      })
-  }
-  else
-  {
-      alert(" Invalid Input")
-  }
-
-}
+    if (pname && pcategory && price && sellprice && description) {
+      axios
+        .post("http://localhost:5000/rproduct", formData, config)
+        .then((res) => {
+          alert(" succesfully upload ");
+          history.push("/products");
+        });
+    } else {
+      alert(" Invalid Input");
+    }
+  };
 
   return (
     <div>
       <div className="mainf">
         <p className="sign">Start Selling</p>
 
-        <form onSubmit={farmerform} className="form-inline"  enctype="multipart/form-data" >
-         
+        <form
+          onSubmit={farmerform}
+          className="form-inline"
+          enctype="multipart/form-data"
+        >
           <div className="product_info">
             <label for="p_name">
               <span>Product Name </span>
@@ -99,10 +83,14 @@ const farmerform = (e) => {
               />
             </label>
 
-
             <label for="p_name">
               <span> Product Category </span>
-              <select name="pcategory" value={farmer.pcategory} className="un" onChange={handleChange}>
+              <select
+                name="pcategory"
+                value={farmer.pcategory}
+                className="un"
+                onChange={handleChange}
+              >
                 <option value="dry Fruits">Dry Fruits</option>
                 <option value="grain">Grain</option>
                 <option value="Spices">Spices</option>
@@ -168,54 +156,15 @@ const farmerform = (e) => {
                 name="file"
                 value={farmer.pimg}
                 onChange={handlefile}
-                
               />
             </label>
           </div>
-          <button className="sign" type="submit" > Submit</button>
+          <button className="sign" type="submit">
+            {" "}
+            Submit
+          </button>
         </form>
-
-       
-    
-
-      
       </div>
     </div>
   );
-
-  //     $("#inputGroupFile01").change(function (event) {
-  //     RecurFadeIn();
-  //     readURL(this);
-  //   });
-
-  //   $("#inputGroupFile01").on('click', function (event) {
-  //     RecurFadeIn();
-  //   });
-
-  //   function readURL(input) {
-  //     if (input.files && input.files[0]) {
-  //       var reader = new FileReader();
-  //       var filename = $("#inputGroupFile01").val();
-  //       filename = filename.substring(filename.lastIndexOf('\\') + 1);
-  //       reader.onload = function (e) {
-  //         debugger;
-  //         $('#preview').attr('src', e.target.result);
-  //         $('#preview').hide();
-  //         $('#preview').fadeIn(500);
-  //         $('.custom-file-label').text(filename);
-  //       }
-  //       reader.readAsDataURL(input.files[0]);
-  //     }
-  //     $(".alert").removeClass("loading").hide();
-  //   }
-
-  //   function RecurFadeIn() {
-  //     console.log('ran');
-  //     FadeInAlert("Wait for it...");
-  //   }
-
-  //   function FadeInAlert(text) {
-  //     $(".alert").show();
-  //     $(".alert").text(text).addClass("loading");
-  //   }
 }
